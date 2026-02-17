@@ -1,49 +1,60 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { useForm as useFormspree } from '@formspree/react'
+import { useState } from 'react'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 
 const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID
 
 export default function ContactForm() {
-  const [isClient, setIsClient] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
-  
-  // Initialize Formspree only if ID exists
-  const formspreeResult = FORMSPREE_ID ? useFormspree(FORMSPREE_ID) : null
-  const state = formspreeResult 
-    ? formspreeResult[0]
-    : { succeeded: false, submitting: false, errors: [] }
-  const formspreeHandleSubmit = formspreeResult ? formspreeResult[1] : null
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
+  const [error, setError] = useState('')
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     setSubmitting(true)
+    setError('')
+
     try {
-      if (FORMSPREE_ID && formspreeHandleSubmit) {
-        await formspreeHandleSubmit(e)
-      } else {
-        // Fallback: Just show success message without sending
-        e.preventDefault()
+      if (!FORMSPREE_ID) {
+        // Demo mode - just show success
         setSubmitSuccess(true)
         setTimeout(() => {
           setSubmitSuccess(false)
           e.currentTarget.reset()
         }, 3000)
+        setSubmitting(false)
+        return
       }
+
+      // Send to Formspree if ID exists
+      const formData = new FormData(e.currentTarget)
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json',
+        },
+      })
+
+      if (response.ok) {
+        setSubmitSuccess(true)
+        e.currentTarget.reset()
+        setTimeout(() => {
+          setSubmitSuccess(false)
+        }, 3000)
+      } else {
+        setError('Failed to send message. Please try again.')
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.')
+      console.error(err)
     } finally {
       setSubmitting(false)
     }
   }
 
-  const succeeded = state.succeeded || submitSuccess
-
-  if (succeeded) {
+  if (submitSuccess) {
     return (
       <div className="bg-light-bg rounded-card p-12 text-center">
         <div className="flex justify-center mb-6">
@@ -69,7 +80,7 @@ export default function ContactForm() {
 
   return (
     <div>
-      {!FORMSPREE_ID && isClient && (
+      {!FORMSPREE_ID && (
         <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6 text-yellow-800 text-sm">
           <p>Note: Form submissions are currently in preview mode. Set NEXT_PUBLIC_FORMSPREE_ID to enable email delivery.</p>
         </div>
@@ -177,21 +188,21 @@ export default function ContactForm() {
         <div className="md:col-span-2">
           <button
             type="submit"
-            disabled={submitting || state.submitting}
+            disabled={submitting}
             className="w-full bg-primary-green text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-forest-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 group"
           >
-            {submitting || state.submitting ? 'Sending...' : 'Send Message'}
-            {!submitting && !state.submitting && (
+            {submitting ? 'Sending...' : 'Send Message'}
+            {!submitting && (
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             )}
           </button>
         </div>
 
         {/* Error Message */}
-        {state.errors && Object.keys(state.errors).length > 0 && (
+        {error && (
           <div className="md:col-span-2 bg-red-50 border border-red-200 rounded-lg p-4 text-red-800">
-            <p className="font-semibold mb-2">There was an error submitting the form:</p>
-            <p className="text-sm">Please check your input and try again.</p>
+            <p className="font-semibold mb-2">Error:</p>
+            <p className="text-sm">{error}</p>
           </div>
         )}
       </div>
