@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 
+// Contact form with Email support via Formspree
 const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID
 
 export default function ContactForm() {
