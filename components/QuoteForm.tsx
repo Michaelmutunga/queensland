@@ -358,7 +358,7 @@ export default function QuoteForm() {
           </div>
         )}
       </div>
-    </div>
     </form>
+    </div>
   )
 }
