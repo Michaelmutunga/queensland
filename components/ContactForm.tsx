@@ -1,20 +1,47 @@
 'use client'
 
-import { useState } from 'react'
-import { useForm } from '@formspree/react'
+import { useState, useEffect } from 'react'
+import { useForm as useFormspree } from '@formspree/react'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID
+
 export default function ContactForm() {
-  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID || '')
+  const [isClient, setIsClient] = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [submitSuccess, setSubmitSuccess] = useState(false)
+  
+  // Only initialize Formspree on client with valid ID
+  const [state, handleSubmit] = FORMSPREE_ID 
+    ? useFormspree(FORMSPREE_ID)
+    : { succeeded: false, submitting: false, errors: [] }
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setSubmitting(true)
-    await handleSubmit(e)
-    setSubmitting(false)
+    try {
+      if (FORMSPREE_ID) {
+        await handleSubmit(e)
+      } else {
+        // Fallback: Just show success message without sending
+        e.preventDefault()
+        setSubmitSuccess(true)
+        setTimeout(() => {
+          setSubmitSuccess(false)
+          e.currentTarget.reset()
+        }, 3000)
+      }
+    } finally {
+      setSubmitting(false)
+    }
   }
 
-  if (state.succeeded) {
+  const succeeded = state.succeeded || submitSuccess
+
+  if (succeeded) {
     return (
       <div className="bg-light-bg rounded-card p-12 text-center">
         <div className="flex justify-center mb-6">
@@ -27,7 +54,9 @@ export default function ContactForm() {
           Thank you for reaching out. We will get back to you within 24 business hours.
         </p>
         <button
-          onClick={() => window.location.reload()}
+          onClick={() => {
+            window.location.reload()
+          }}
           className="text-primary-green font-semibold hover:text-forest-dark"
         >
           Send Another Message →
@@ -37,7 +66,13 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleFormSubmit} className="bg-white rounded-card p-8 md:p-12 shadow-subtle">
+    <div>
+      {!FORMSPREE_ID && isClient && (
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6 text-yellow-800 text-sm">
+          <p>Note: Form submissions are currently in preview mode. Set NEXT_PUBLIC_FORMSPREE_ID to enable email delivery.</p>
+        </div>
+      )}
+      <form onSubmit={handleFormSubmit} className="bg-white rounded-card p-8 md:p-12 shadow-subtle">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Name */}
         <div>
@@ -158,6 +193,7 @@ export default function ContactForm() {
           </div>
         )}
       </div>
-    </form>
+      </form>
+    </div>
   )
 }
