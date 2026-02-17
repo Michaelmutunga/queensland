@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.next
+.eslintrc.json
+README.md
+DEPLOYMENT.md
+QUICKSTART.md
+.env.example
+.vercel
+.agents
