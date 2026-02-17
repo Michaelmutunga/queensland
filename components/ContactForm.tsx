@@ -11,10 +11,12 @@ export default function ContactForm() {
   const [submitting, setSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
   
-  // Only initialize Formspree on client with valid ID
-  const [state, handleSubmit] = FORMSPREE_ID 
-    ? useFormspree(FORMSPREE_ID)
+  // Initialize Formspree only if ID exists
+  const formspreeResult = FORMSPREE_ID ? useFormspree(FORMSPREE_ID) : null
+  const state = formspreeResult 
+    ? formspreeResult[0]
     : { succeeded: false, submitting: false, errors: [] }
+  const formspreeHandleSubmit = formspreeResult ? formspreeResult[1] : null
 
   useEffect(() => {
     setIsClient(true)
@@ -23,8 +25,8 @@ export default function ContactForm() {
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setSubmitting(true)
     try {
-      if (FORMSPREE_ID) {
-        await handleSubmit(e)
+      if (FORMSPREE_ID && formspreeHandleSubmit) {
+        await formspreeHandleSubmit(e)
       } else {
         // Fallback: Just show success message without sending
         e.preventDefault()
