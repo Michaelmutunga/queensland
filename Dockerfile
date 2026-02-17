@@ -12,6 +12,9 @@ RUN npm ci && npm cache clean --force
 # Copy source code
 COPY . .
 
+# Clean Next.js cache to ensure fresh build
+RUN rm -rf .next
+
 # Build Next.js app
 RUN npm run build
 
