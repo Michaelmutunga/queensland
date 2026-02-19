@@ -82,7 +82,9 @@ export default function ProductsShowcase() {
             >
               {/* Image Placeholder */}
               <div className="h-40 bg-gradient-to-br from-primary-green/10 to-teal-accent/10 flex items-center justify-center group-hover:from-primary-green/15 group-hover:to-teal-accent/15 transition-all">
-                <div className="text-4xl">🥜</div>
+                <div className="px-4 py-2 rounded-full bg-white/80 text-primary-green font-display text-sm tracking-wide">
+                  Queensland Nuts
+                </div>
               </div>
 
               {/* Content */}
@@ -98,9 +100,9 @@ export default function ProductsShowcase() {
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-primary-green text-white px-4 py-2 rounded-button font-semibold text-sm hover:bg-forest-dark hover:-translate-y-0.5 transition-all group/btn"
+                  className="inline-flex items-center gap-2 bg-primary-green text-white px-4 py-2 rounded-button font-semibold text-sm hover:bg-forest-dark hover:-translate-y-0.5 transition-all group/btn focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2 focus:ring-offset-white"
                 >
-                  Get Quote
+                  Get Export Quote
                   <ArrowRight
                     size={16}
                     className="group-hover/btn:translate-x-1 transition-transform"
@@ -115,7 +117,7 @@ export default function ProductsShowcase() {
         <div className="text-center">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 text-primary-green font-semibold text-lg hover:text-forest-dark group"
+            className="inline-flex items-center gap-2 text-primary-green font-semibold text-lg hover:text-forest-dark group focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2 focus:ring-offset-light-bg"
           >
             View All Products
             <ArrowRight

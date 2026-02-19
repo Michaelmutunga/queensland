@@ -79,7 +79,7 @@ export default function ProcessTimeline() {
             return (
               <motion.div key={idx} variants={cardVariants} className="relative">
                 {/* Card */}
-                <div className="bg-light-bg rounded-card p-8 h-full hover:shadow-elevated transition-all duration-300 group">
+                <div className="bg-light-bg rounded-card p-8 h-full border-l-4 border-primary-green hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 group">
                   {/* Step Number */}
                   <div className="absolute -top-4 -left-4 w-10 h-10 bg-primary-green text-white rounded-full flex items-center justify-center font-display font-bold text-lg group-hover:bg-forest-dark transition-colors">
                     {idx + 1}
@@ -116,7 +116,7 @@ export default function ProcessTimeline() {
         <div className="text-center">
           <Link
             href="/process"
-            className="inline-flex items-center gap-2 text-primary-green font-semibold text-lg hover:text-forest-dark group"
+            className="inline-flex items-center gap-2 text-primary-green font-semibold text-lg hover:text-forest-dark group focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2 focus:ring-offset-white"
           >
             Learn More About Our Process
             <ArrowRight

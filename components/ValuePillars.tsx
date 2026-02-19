@@ -108,7 +108,7 @@ export default function ValuePillars() {
                 {/* Link */}
                 <Link
                   href={pillar.link}
-                  className="inline-flex items-center gap-1 text-primary-green font-semibold text-sm hover:text-forest-dark group/link"
+                  className="inline-flex items-center gap-1 text-primary-green font-semibold text-sm hover:text-forest-dark group/link focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2 focus:ring-offset-white"
                 >
                   {pillar.linkText}
                   <ArrowRight

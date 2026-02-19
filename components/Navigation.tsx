@@ -47,16 +47,16 @@ export default function Navigation() {
           <div className="hidden md:block">
             <Link
               href="/contact"
-              className="bg-primary-green text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-forest-dark hover:-translate-y-0.5 transition-all shadow-subtle hover:shadow-elevated"
+              className="bg-primary-green text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-forest-dark hover:-translate-y-0.5 transition-all shadow-subtle hover:shadow-elevated focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2 focus:ring-offset-white"
             >
-              Get Quote
+              Get Export Quote
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:bg-light-bg rounded-lg transition-colors"
+            className="md:hidden p-2 hover:bg-light-bg rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2 focus:ring-offset-white"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -71,7 +71,7 @@ export default function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 font-medium text-charcoal hover:bg-light-bg rounded-lg transition-colors"
+                  className="px-4 py-2 font-medium text-charcoal hover:bg-light-bg rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2 focus:ring-offset-white"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -79,10 +79,10 @@ export default function Navigation() {
               ))}
               <Link
                 href="/contact"
-                className="mx-4 bg-primary-green text-white px-4 py-2.5 rounded-lg font-semibold text-center hover:bg-forest-dark transition-colors"
+                className="mx-4 bg-primary-green text-white px-4 py-2.5 rounded-lg font-semibold text-center hover:bg-forest-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2 focus:ring-offset-white"
                 onClick={() => setIsOpen(false)}
               >
-                Get Quote
+                Get Export Quote
               </Link>
             </div>
           </div>

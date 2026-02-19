@@ -30,14 +30,14 @@ export default function CTASection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="bg-white text-primary-green px-8 py-3.5 rounded-lg font-semibold hover:bg-cream hover:-translate-y-1 transition-all shadow-subtle hover:shadow-elevated inline-flex items-center justify-center gap-2 group"
+              className="bg-white text-primary-green px-8 py-3.5 rounded-lg font-semibold hover:bg-cream hover:-translate-y-1 transition-all shadow-subtle hover:shadow-elevated inline-flex items-center justify-center gap-2 group focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
             >
               Get Export Quote
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/contact"
-              className="border-2 border-white text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 group"
+              className="border-2 border-white text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-white/10 transition-colors inline-flex items-center justify-center gap-2 group focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
             >
               Order Samples
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
