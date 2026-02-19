@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Mail, MapPin, Phone } from 'lucide-react'
 
 export default function Footer() {
@@ -14,10 +15,13 @@ export default function Footer() {
           {/* Column 1: About */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary-green rounded-lg flex items-center justify-center font-display font-bold text-sm">
-                QN
-              </div>
-              <span className="font-display font-bold text-lg">Queensland Nuts</span>
+              <Image
+                src="/logo.png"
+                alt="Queensland Nuts Logo"
+                width={150}
+                height={50}
+                className="h-10 md:h-12 w-auto object-contain"
+              />
             </div>
             <p className="text-white/80 text-sm leading-relaxed mb-6">
               Kenya is a modern macadamia processor combining advanced technology with sustainable farmer partnerships.

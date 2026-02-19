@@ -3,6 +3,7 @@ import TrustBar from '@/components/TrustBar'
 import ValuePillars from '@/components/ValuePillars'
 import ProductsShowcase from '@/components/ProductsShowcase'
 import StatsSection from '@/components/StatsSection'
+import Certifications from '@/components/Certifications'
 import ProcessTimeline from '@/components/ProcessTimeline'
 import CTASection from '@/components/CTASection'
 
@@ -14,6 +15,7 @@ export default function Home() {
       <ValuePillars />
       <ProductsShowcase />
       <StatsSection />
+      <Certifications />
       <ProcessTimeline />
       <CTASection />
     </>

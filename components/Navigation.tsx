@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 export default function Navigation() {
@@ -22,12 +23,14 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20 md:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-primary-green rounded-lg flex items-center justify-center text-white font-display font-bold text-lg group-hover:bg-forest-dark transition-colors">
-              QN
-            </div>
-            <span className="font-display font-bold text-lg md:text-xl text-charcoal hidden sm:inline">
-              Queensland Nuts
-            </span>
+            <Image
+              src="/logo.png"
+              alt="Queensland Nuts Logo"
+              width={180}
+              height={60}
+              priority
+              className="h-10 md:h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
