@@ -5,11 +5,11 @@ import Footer from '@/components/Footer'
 import SchemaOrg from '@/components/SchemaOrg'
 
 export const metadata: Metadata = {
-  title: 'Queensland Nuts | Premium Macadamia Kernels from Kenya',
+  title: 'Queensland Nuts Limited | Premium Macadamia Kernels from Kenya',
   description: 'Kenya\'s most technologically advanced macadamia processor delivering export-grade quality with speed and reliability. 500+ smallholder farmers, Styles 0-8 processing capability.',
   keywords: 'macadamia, Kenya, export, wholesale, nuts, processor, quality, sustainable',
   openGraph: {
-    title: 'Queensland Nuts | Premium Macadamia Kernels from Kenya',
+    title: 'Queensland Nuts Limited | Premium Macadamia Kernels from Kenya',
     description: 'Kenya\'s modern macadamia processor combining advanced technology with sustainable farmer partnerships.',
     type: 'website',
     locale: 'en_US',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Queensland Nuts | Premium Macadamia Kernels from Kenya',
+    title: 'Queensland Nuts Limited | Premium Macadamia Kernels from Kenya',
     description: 'Kenya\'s modern macadamia processor combining advanced technology with sustainable farmer partnerships.',
   },
   robots: {

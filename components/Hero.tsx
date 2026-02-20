@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 
@@ -49,7 +50,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-lg md:text-xl text-charcoal/90 max-w-lg"
             >
-              Kenya is the most modern macadamia processor delivering world-class quality to global markets.
+              Kenya's most modern macadamia processor delivering world-class quality to global markets.
             </motion.p>
 
             <motion.div variants={itemVariants} className="text-charcoal/80 space-y-3 max-w-lg">
@@ -77,24 +78,23 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Image Placeholder */}
-            <motion.div
+          {/* Right Image */}
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             className="hidden lg:block"
           >
-            <div className="relative h-500 bg-gradient-to-br from-primary-green/10 to-teal-accent/10 rounded-2xl overflow-hidden shadow-elevated">
-              <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-64 h-64 bg-light-bg rounded-full flex items-center justify-center">
-                    <div className="px-6 py-3 rounded-full bg-primary-green text-white font-display text-sm tracking-wide">
-                      Premium Macadamia Kernels
-                    </div>
-                  </div>
-              </div>
-              {/* Decorative circles */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary-green/5 rounded-full" />
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-teal-accent/5 rounded-full" />
+            <div className="relative rounded-2xl overflow-hidden shadow-elevated group">
+              <Image
+                src="/images/Process/hero-macadamia-kernels-leaves.jpg"
+                alt="Queensland Nuts Limited premium macadamia kernels with shells and fresh leaves showcasing natural quality"
+                width={1200}
+                height={800}
+                quality={85}
+                priority
+                className="rounded-2xl object-cover w-full h-auto group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
           </motion.div>
         </div>

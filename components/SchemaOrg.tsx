@@ -2,7 +2,7 @@ export default function SchemaOrg() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Queensland Nut Limited',
+    name: 'Queensland Nuts Limited',
     url: 'https://queenslandnuts.com',
     logo: 'https://queenslandnuts.com/logo.png',
     description: "Kenya's most technologically advanced macadamia processor delivering export-grade quality with speed and reliability.",

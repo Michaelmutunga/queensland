@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight, Settings } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Our Process | Queensland Nuts',
-  description: 'See how Queensland Nuts processes macadamia kernels - from sourcing through quality control to export. Transparent, traceable, consistent quality.',
+  title: 'Our Process | Queensland Nuts Limited',
+  description: 'See how Queensland Nuts Limited processes macadamia kernels - from sourcing through quality control to export. Transparent, traceable, consistent quality.',
   openGraph: {
-    title: 'Our Process | Queensland Nuts',
+    title: 'Our Process | Queensland Nuts Limited',
     description: 'Transparent macadamia processing from farm to export',
   },
 }
@@ -98,6 +99,37 @@ const processSteps = [
   },
 ]
 
+const processImages: Record<number, { src: string; alt: string }> = {
+  0: {
+    src: '/images/Process/process-1-sourcing-farmer-partnerships.jpg',
+    alt: 'Queensland Nuts farmer partners in Kenya macadamia growing regions',
+  },
+  1: {
+    src: '/images/Process/process-quality-control-fresh-harvest.jpg',
+    alt: 'Reception and pre-processing quality checks at Queensland Nuts facility',
+  },
+  2: {
+    src: '/images/Process/process-2-automated-processing-equipment.jfif',
+    alt: 'State-of-the-art automated macadamia cracking and separation equipment',
+  },
+  3: {
+    src: '/images/Process/process-3-quality-control-inspection-team.jpg',
+    alt: 'Quality control team sorting and grading macadamia kernels',
+  },
+  4: {
+    src: '/images/Process/rocess-4-packaging-sorted-kernels.jpg',
+    alt: 'Nitrogen-flush packaging and preservation of macadamia kernels',
+  },
+  5: {
+    src: '/images/Process/Quality-assuarance.jpg',
+    alt: 'Quality assurance testing of macadamia kernels at every stage',
+  },
+  6: {
+    src: '/images/Process/Storage-and-logistics.png',
+    alt: 'Climate-controlled storage and logistics at Queensland Nuts Limited',
+  },
+}
+
 export default function Process() {
   return (
     <div className="pt-32">
@@ -129,9 +161,8 @@ export default function Process() {
             {processSteps.map((step, idx) => (
               <div
                 key={idx}
-                className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${
-                  idx % 2 === 1 ? 'md:grid-cols-2 lg:auto-cols-fr' : ''
-                }`}
+                className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${idx % 2 === 1 ? 'md:grid-cols-2 lg:auto-cols-fr' : ''
+                  }`}
               >
                 {/* Content */}
                 <div className={idx % 2 === 1 ? 'md:order-2' : ''}>
@@ -159,10 +190,17 @@ export default function Process() {
                   </ul>
                 </div>
 
-                {/* Image Placeholder */}
+                {/* Image */}
                 <div className={idx % 2 === 1 ? 'md:order-1' : ''}>
-                  <div className="bg-white rounded-card h-96 flex items-center justify-center shadow-subtle">
-                    <div className="text-6xl">📦</div>
+                  <div className="bg-white rounded-card overflow-hidden shadow-subtle">
+                    <Image
+                      src={processImages[idx]?.src || '/images/Process/hero-macadamia-kernels-leaves.jpg'}
+                      alt={processImages[idx]?.alt || step.title}
+                      width={800}
+                      height={600}
+                      quality={75}
+                      className="w-full h-96 object-cover"
+                    />
                   </div>
                 </div>
               </div>
@@ -189,7 +227,7 @@ export default function Process() {
               'Traceability management systems',
             ].map((equipment, idx) => (
               <div key={idx} className="flex items-center gap-4 bg-light-bg p-6 rounded-card">
-                <span className="text-2xl">⚙️</span>
+                <Settings size={24} className="text-primary-green" />
                 <span className="font-semibold text-charcoal">{equipment}</span>
               </div>
             ))}

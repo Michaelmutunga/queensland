@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Products | Queensland Nuts',
+  title: 'Products | Queensland Nuts Limited',
   description: 'Premium macadamia kernels in all styles (0-8) - from premium wholes to fine chips. Precision grading, vacuum-sealed with nitrogen-flush preservation.',
   openGraph: {
-    title: 'Products | Queensland Nuts',
+    title: 'Products | Queensland Nuts Limited',
     description: 'Premium macadamia kernels in all styles (0-8) with precision grading',
   },
 }
@@ -84,9 +85,20 @@ export default function Products() {
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
             Premium Macadamia Kernels for Every Application
           </h1>
-          <p className="text-xl text-charcoal/80">
+          <p className="text-xl text-charcoal/80 mb-10">
             From whole kernels to fine chips, Styles 0-8 with precision grading and consistent quality
           </p>
+          <div className="rounded-2xl overflow-hidden shadow-elevated max-w-3xl mx-auto">
+            <Image
+              src="/images/nuts and kernel shells.jpg"
+              alt="Queensland Nuts Limited premium macadamia product range from whole kernels to chips"
+              width={1200}
+              height={600}
+              quality={75}
+              priority
+              className="w-full h-auto object-cover"
+            />
+          </div>
         </div>
       </section>
 

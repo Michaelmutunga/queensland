@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
@@ -9,21 +10,29 @@ const products = [
     title: 'Style 1L - Premium Wholes',
     specs: '16mm to 20mm | 95% wholes',
     description: 'Large, premium whole kernels perfect for high-end retail, luxury confectionery, and direct consumption.',
+    image: '/images/Process/product-style-1l-premium-wholes.jpg',
+    alt: 'Style 1L premium whole macadamia kernels 16-20mm for retail and luxury confectionery',
   },
   {
     title: 'Style 4L - Select Halves',
     specs: '14mm to 16mm | 90% halves',
     description: 'Consistent halves ideal for coating, roasting, and premium baking applications.',
+    image: '/images/Process/product-style-4l-select-halves.jpg',
+    alt: 'Style 4L select macadamia halves 14-16mm ideal for baking and coating applications',
   },
   {
     title: 'Style 6 - Medium Chips',
     specs: '6mm to 9mm pieces',
     description: 'Versatile chips for ice cream, granola, bakery products, and trail mixes.',
+    image: '/images/Process/product-style-6-medium-chips.jpg',
+    alt: 'Style 6 medium macadamia chips 6-9mm perfect for ice cream granola and bakery products',
   },
   {
     title: 'Style 7 - Small Chips',
     specs: '4mm to 6mm pieces',
     description: 'Fine chips perfect for cookies, chocolate inclusions, and confectionery applications.',
+    image: '/images/Process/product-style-7-small-chips.png',
+    alt: 'Style 7 small macadamia chips 4-6mm for cookies chocolate and confectionery',
   },
 ]
 
@@ -80,11 +89,16 @@ export default function ProductsShowcase() {
               variants={cardVariants}
               className="bg-white rounded-card overflow-hidden shadow-subtle hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 border-t-4 border-primary-green group"
             >
-              {/* Image Placeholder */}
-              <div className="h-40 bg-gradient-to-br from-primary-green/10 to-teal-accent/10 flex items-center justify-center group-hover:from-primary-green/15 group-hover:to-teal-accent/15 transition-all">
-                <div className="px-4 py-2 rounded-full bg-white/80 text-primary-green font-display text-sm tracking-wide">
-                  Queensland Nuts
-                </div>
+              {/* Product Image */}
+              <div className="h-48 overflow-hidden">
+                <Image
+                  src={product.image}
+                  alt={product.alt}
+                  width={600}
+                  height={450}
+                  quality={75}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
 
               {/* Content */}

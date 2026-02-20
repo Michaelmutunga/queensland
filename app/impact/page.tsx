@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Impact & Sustainability | Queensland Nuts',
+  title: 'Impact & Sustainability | Queensland Nuts Limited',
   description: 'Our commitment to farmer partnerships, community development, environmental sustainability, and responsible business practices.',
   openGraph: {
-    title: 'Impact & Sustainability | Queensland Nuts',
+    title: 'Impact & Sustainability | Queensland Nuts Limited',
     description: 'Growing together - farmer partnerships and sustainable practices',
   },
 }
@@ -35,6 +36,17 @@ export default function Impact() {
           <p className="text-lg text-charcoal/85 leading-relaxed mb-10">
             We believe that direct relationships with our farmer partners create better outcomes for everyone. That is why we maintain transparent, long-term partnerships with over 500 smallholder farmers across Kenya macadamia-growing regions.
           </p>
+
+          <div className="rounded-2xl overflow-hidden shadow-elevated mb-12">
+            <Image
+              src="/images/Process/process-1-sourcing-farmer-partnerships.jpg"
+              alt="Queensland Nuts Limited supporting smallholder farmers through seedling distribution and sustainable farming partnerships"
+              width={1200}
+              height={600}
+              quality={75}
+              className="w-full h-auto object-cover"
+            />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
@@ -146,6 +158,29 @@ export default function Impact() {
           <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-16">
             Sustainable Processing for a Sustainable Future
           </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="rounded-xl overflow-hidden shadow-subtle">
+              <Image
+                src="/images/nuts growing in tree.jpg"
+                alt="Macadamia nuts growing naturally on trees in Kenya"
+                width={600}
+                height={400}
+                quality={85}
+                className="w-full h-64 object-cover"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-subtle">
+              <Image
+                src="/images/freshly harvested nuts.jpg"
+                alt="Freshly harvested macadamia nuts showing premium quality"
+                width={600}
+                height={400}
+                quality={85}
+                className="w-full h-64 object-cover"
+              />
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* Waste Management */}

@@ -17,16 +17,16 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <Image
                 src="/logo.png"
-                alt="Queensland Nuts Logo"
+                alt="Queensland Nuts Limited Logo"
                 width={150}
                 height={50}
                 className="h-10 md:h-12 w-auto object-contain"
               />
             </div>
             <p className="text-white/80 text-sm leading-relaxed mb-6">
-              Kenya is a modern macadamia processor combining advanced technology with sustainable farmer partnerships.
+              Kenya's modern macadamia processor combining advanced technology with sustainable farmer partnerships.
             </p>
-            
+
             {/* Newsletter Signup */}
             <form className="flex flex-col gap-2">
               <input

@@ -23,7 +23,7 @@ export default function CTASection() {
             Let us Grow Together
           </h2>
           <p className="text-lg text-white/95 mb-10 max-w-2xl mx-auto">
-            Whether you are a confectionery manufacturer, premium retailer, or food distributor, Queensland Nuts delivers the quality, consistency, and reliability your business needs.
+            Whether you are a confectionery manufacturer, premium retailer, or food distributor, Queensland Nuts Limited delivers the quality, consistency, and reliability your business needs.
           </p>
 
           {/* CTAs */}

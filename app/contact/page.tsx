@@ -5,10 +5,10 @@ import QuoteForm from '@/components/QuoteForm'
 import ContactFormComponent from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contact & Quote | Queensland Nuts',
-  description: 'Request an export quote, order samples, or contact Queensland Nuts. Fast response time - 24-48 hours guaranteed.',
+  title: 'Contact & Quote | Queensland Nuts Limited',
+  description: 'Request an export quote, order samples, or contact Queensland Nuts Limited. Fast response time - 24-48 hours guaranteed.',
   openGraph: {
-    title: 'Contact & Quote | Queensland Nuts',
+    title: 'Contact & Quote | Queensland Nuts Limited',
     description: 'Request a quote or contact us - 24-48hr response guaranteed',
   },
 }
@@ -138,7 +138,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-charcoal mb-2">Phone</h3>
-                  <a 
+                  <a
                     href="tel:+254723638417"
                     className="text-primary-green hover:text-forest-dark font-semibold"
                   >
@@ -156,7 +156,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-charcoal mb-2">Email</h3>
-                  <a 
+                  <a
                     href="mailto:issac@queenslandnuts.com"
                     className="text-primary-green hover:text-forest-dark font-semibold"
                   >

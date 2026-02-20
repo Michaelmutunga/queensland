@@ -25,7 +25,7 @@ export default function Navigation() {
           <Link href="/" className="flex items-center gap-3 group">
             <Image
               src="/logo.png"
-              alt="Queensland Nuts Logo"
+              alt="Queensland Nuts Limited Logo"
               width={180}
               height={60}
               priority
